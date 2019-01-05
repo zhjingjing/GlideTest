@@ -60,16 +60,18 @@ public class MainActivity extends AppCompatActivity {
 //         });
         //错误加载指定gif，却传入静态图片地址
 //        GlideApp.with(this).asGif().load(URL).diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(R.mipmap.ic_launcher).error(R.drawable.error) .into(binding.ivPic);
+
+
         //圆形图片
         GlideApp.with(this).load(URL).circleCrop().into(binding.ivPic);
+
         //圆角图片
         RoundedCorners corners=new RoundedCorners(50);
         RequestOptions options=RequestOptions.bitmapTransform(corners).override(300,300);
         GlideApp.with(this).load(URL).apply(options).into(binding.ivPic2);
-//
+
         //设置淡入淡出效果
         GlideApp.with(this).load(URL_GIF) .transition(DrawableTransitionOptions.withCrossFade(5000)).into(binding.ivPic);
-
 
         //高斯模糊
         GlideApp.with(this)
@@ -79,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .apply(RequestOptions.bitmapTransform(new BlurTransformation(5, 1)))
                 .into(binding.ivPic2);
+
+
     }
 
 
